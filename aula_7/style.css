@@ -1,0 +1,27 @@
+* {
+    color:;
+}
+
+h1 {
+    font-size: 10vh;
+}
+
+body {
+    background-color: #dec2cb;
+}
+
+div {
+    background-color: #f7cac9;
+}
+
+.cabecalho {
+    background-color: #92a8d1;
+}
+
+.conteudo {
+    background-color: #c5b9cd;
+}
+
+.rodape {
+    background-color: #abb1cf;
+}
