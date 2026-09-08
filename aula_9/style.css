@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
   color: inherit;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Remove as bolinhas/números de todas as listas */
@@ -27,14 +28,39 @@ body {
 
 }
 
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    border: none;             
+    height: 1px;              
+    background-color: rgb(185, 185, 185);
+    margin: 20px 0;     
+}
+
 .cabecalho {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:pink;
+    background-color:rgb(223, 126, 185);
     gap: 0;
     padding: 10px;
+    color: white;
+    height: 150px;
 }
 
 .logo_titulo {
@@ -58,8 +84,10 @@ ul li a {
 }
 
 .container {
-    background-color: gray;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
     width: 100%;
     margin: 30px auto;
 }
@@ -73,6 +101,9 @@ ul li a {
     margin-top: 20px;
     padding: 30px;
     border-radius: 15px;
+    height: 200px;
+    gap: 20px;
+    text-align: center;
 }
 
 
@@ -85,28 +116,44 @@ section {
     margin-top: 20px;
 }
 
-.sessao_cards {
+.sessao_nossos_sabores {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: center;
+    flex-direction: column;
+    background-color: aqua;
+    gap: 20px
 }
 
 .cards {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 20px;
+    align-items: center;
+    width: 100%;
 }
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 350px;
     background-color: white;
-    width: 250px;
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 30px;
+    gap: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    color: rgb(250, 81, 109);
+}
+
+.icone_card {
+    height: 60px;
+    width: auto;
 }
 
 .sessao_contatos {
@@ -115,7 +162,8 @@ section {
     align-items: center;
     background-color: white;
     border-radius: 15px;
-    padding: 10px;
+    padding: 20px;
+    gap: 20px;
 }
 
 .sessao_contatos ul {
@@ -124,11 +172,15 @@ section {
     align-items: center;
 }
 
+.sessao_contatos ul li {
+
+}
+
 .rodape {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: brown;
+    background-color: rgb(230, 80, 61);
     height: 50px;
 }
 
