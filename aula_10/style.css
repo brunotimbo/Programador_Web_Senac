@@ -1,26 +1,27 @@
-/* Reset padrão */
+Reset padrão
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Remove o sublinhado de todos os links */
 a {
-  text-decoration: none;
-  color: inherit;
-  font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: inherit;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Remove as bolinhas/números de todas as listas */
-ul, ol {
-  list-style: none;
+ul,
+ol {
+    list-style: none;
 }
 
 /* Garante que imagens nunca passem do tamanho da tela */
 img {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
 body {
@@ -45,10 +46,10 @@ p {
 }
 
 hr {
-    border: none;             
-    height: 1px;              
+    border: none;
+    height: 1px;
     background-color: rgb(185, 185, 185);
-    margin: 20px 0;     
+    margin: 20px 0;
 }
 
 .cabecalho {
@@ -56,7 +57,7 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:rgb(223, 126, 185);
+    background-color: rgb(223, 126, 185);
     gap: 0;
     padding: 10px;
     color: white;
@@ -80,7 +81,7 @@ ul {
 }
 
 ul li a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .container {
@@ -105,8 +106,6 @@ ul li a {
     gap: 20px;
     text-align: center;
 }
-
-
 
 .main p {
     text-align: center;
@@ -172,8 +171,17 @@ section {
     align-items: center;
 }
 
-.sessao_contatos ul li {
+.formulario {
+    max-width: 400px;
+    margin: 20px auto;
 
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
 }
 
 .rodape {
@@ -182,18 +190,6 @@ section {
     justify-content: center;
     background-color: rgb(230, 80, 61);
     height: 50px;
-}
-
-.formulario {
-    max-width: 350px;
-    margin: 20px auto;
-    background-color: rgb(14, 192, 236);
-
-    form {
-        display: flex;
-        flex-direction: column;
-
-    }
 }
 
 .rodape p {
