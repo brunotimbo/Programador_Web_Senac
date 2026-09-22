@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="main">
+        <section class="login">
+            <div class="container">
+                <div class="titulo">
+                    <h1>Login</h1>
+                    <p>Entre na sua conta.</p>
+                </div>
+                <form class="formulario-campo">
+                    <div class="formulario"></div>
+                    <label>Usuário
+                        <input type="text" id="login" name="Login" placeholder="Digite seu usuário">
+                    </label><br>
+                    <label>Senha
+                        <input type="text" id="senha" name="Senha" placeholder="Digite sua senha"><br>
+                    </label><br>
+                    <button onclick="efetuarLogin()">Entrar</button>
+                    <p id="mensagem"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

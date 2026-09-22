@@ -1,3 +1,5 @@
+/* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -31,6 +33,12 @@ body {
     padding: 20px;
 }
 
+/* VERIFICADOR */
+
+.login {
+    width: 100%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -46,12 +54,6 @@ body {
     box-shadow: 0px 0px 20px 5px #9090907f;
 }
 
-/* TÍTULO */
-
-.titulo {
-    text-align: center;
-}
-
 .titulo h1 {
     font-size: 2rem;
 
@@ -63,10 +65,14 @@ body {
     color: #555;
 }
 
+/*   FORMULÁRIO */
+
+
 .formulario {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
     align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
@@ -78,6 +84,8 @@ body {
 
     gap: 10px;
 }
+
+/* INPUT */
 
 .formulario-campo input {
     flex: 1;
@@ -96,6 +104,8 @@ body {
     border-color: #555;
 }
 
+/* BOTÃO */
+
 .formulario-campo button {
     padding: 12px 20px;
 
@@ -113,3 +123,6 @@ body {
 .formulario-campo button:hover {
     background-color: #444;
 }
+
+
+
