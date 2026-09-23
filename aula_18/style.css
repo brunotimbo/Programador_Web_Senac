@@ -1,128 +1,116 @@
-/* RESET */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* CONFIGURAÇÕES GERAIS */
-
-html {
-    font-size: 16px;
+header {
+    background-color: #007bff;
 }
 
 body {
-    min-height: 100vh;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    background-color: #f5f5f5;
-    color: #222;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
 }
 
-/* CONTEÚDO PRINCIPAL */
-
-.main {
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
-}
-
-/* VERIFICADOR */
-
-.login {
-    width: 100%;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 500px;
-    background-color: #b1e5d6;
-    border-radius: 20px;
+/*  TELA DE LOGIN */
+.login-container {
+    width: 350px;
+    background-color: white;
     padding: 30px;
-    margin: 0 auto;
-    box-shadow: 0px 0px 20px 5px #9090907f;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    p {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #665;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+
+        &&:hover {
+            background-color: #0056b3;
+        }
+    }
 }
 
-.titulo h1 {
-    font-size: 2rem;
-
+#mensagem {
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.titulo p {
-    font-size: 1rem;
 
-    color: #555;
-}
+/* PÁGINA INTERNA */
 
-/*   FORMULÁRIO */
-
-
-.formulario {
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    text-align: center;
+
+
+    button {
+        background-color: white;
+        color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 }
 
-.formulario-campo {
-    display: flex;
-    align-items: center;
-    /* justify-; */
-    /* width: 500px; */
+.conteudo {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 
-    gap: 10px;
+    .conteudo h2 {
+        margin-bottom: 10px;
+    }
+
+    .cabecalho-main {
+        color: #ffffff;
+    }
 }
 
-/* INPUT */
-
-.formulario-campo input {
-    flex: 1;
-
-    padding: 12px;
-
-    font-size: 1rem;
-
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-    outline: none;
+.card {
+    background-color: rgb(102, 176, 206);
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(40, 112, 141, 0.826);
 }
-
-.formulario-campo input:focus {
-    border-color: #555;
-}
-
-/* BOTÃO */
-
-.formulario-campo button {
-    padding: 12px 20px;
-
-    font-size: 1rem;
-
-    border: none;
-    border-radius: 5px;
-
-    background-color: #222;
-    color: #fff;
-
-    cursor: pointer;
-}
-
-.formulario-campo button:hover {
-    background-color: #444;
-}
-
-
-
