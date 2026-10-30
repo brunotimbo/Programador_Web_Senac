@@ -1,13 +1,11 @@
 // mapear o fomulário no html
 const formulario = document.getElementById('formulario');
-const listaVisual = document.getElementById('listVisual');
+const listaVisual = document.getElementById('listaVisual');
 
 function carregarUsuarios() {
-
-    fetch('html://localhost:3000/usuarios')
+    fetch('http://localhost:3000/usuarios')
         .then(function (resposta) {
             return resposta.json();
-            console.log(resposta)
         })
         .then(function (listaDeUsuarios) {
             listaVisual.innerHTML = '';
@@ -27,8 +25,6 @@ function carregarUsuarios() {
             console.error('Erro ao buscar usuários:', erro)
         })
 }
-
-window.addEventListener('DOMContentLoaded', carregarUsuarios);
 
 // monitora o click do botão do formulário
 formulario.addEventListener('submit', function (evento) {
@@ -52,10 +48,8 @@ formulario.addEventListener('submit', function (evento) {
         headers: { 'Content-Type': 'application/json' },    // informa ao express formato de texto json 
         body: JSON.stringify(usuario)                       // tranforma objeto js em texto json        
     })
-
         // primeiro then pega a resposta do servidor e converte em objeto
         .then(function (respostaDoServidor) {
-            console.log(respostaDoServidor)
             return respostaDoServidor.json();
         })
 
@@ -63,6 +57,7 @@ formulario.addEventListener('submit', function (evento) {
         .then(function (usuarioSalvo) {
             alert(`Sucesso! ${usuarioSalvo.nome} foi cadastrado.`); // notificação na tela
             formulario.reset();                                     // limpa campos do formulário
+            carregarUsuarios()
         })
 
         // caso aconteça erro
@@ -72,3 +67,17 @@ formulario.addEventListener('submit', function (evento) {
         })
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', carregarUsuarios);

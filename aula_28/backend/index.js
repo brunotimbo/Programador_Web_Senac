@@ -11,19 +11,17 @@ app.use(express.json());        // para express ler dados enviados em JSON
 
 // bando de dados fictício na memória ram
 const usuarios = [
-    {id: 1, nome: "Ana Costa", cargo: "Desenvolvedora"},
-    {id: 2, nome: "Carlos Sousa", cargo: "Designer"},
+    { id: 1, nome: "Ana Costa", cargo: "Desenvolvedora" },
+    { id: 2, nome: "Carlos Sousa", cargo: "Designer" },
 ];
 
 // rota get: envia a lista atual de usuarios para quem solicitar
-app.get("/usuarios", function(requisicao, resposta) {
-
+app.get("/usuarios", function (requisicao, resposta) {
     return resposta.json(usuarios);
-
 });
 
 // rota post: recebe novos dados do frontend
-app.post("/usuarios", function(requisicao, resposta) {
+app.post("/usuarios", function (requisicao, resposta) {
 
     const dadosRecebidos = requisicao.body;
 
