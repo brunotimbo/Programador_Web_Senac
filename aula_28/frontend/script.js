@@ -2,19 +2,24 @@
 const formulario = document.getElementById('formulario');
 const listaVisual = document.getElementById('listaVisual');
 
+let nomeUsuarioSendoEditado = null;
+
 function carregarUsuarios() {
     fetch('http://localhost:3000/usuarios')
         .then(function (resposta) {
             return resposta.json();
         })
         .then(function (listaDeUsuarios) {
+
             listaVisual.innerHTML = '';
+
             listaDeUsuarios.forEach(function (user) {
-                const itemLista = document.createElement('li')
+
+                const itemLista = document.createElement('li');
                 itemLista.innerHTML = `
                     <span> <strong> ${user.nome} </strong> - ${user.cargo} </span>
                     <div class="lista-user">
-                        <button class="btn-editar" onclick="prepararEdicao('${user.nome}, ${user.cargo}')"> Editar </button>
+                        <button class="btn-editar" onclick="prepararEdicao('${user.nome}', '${user.cargo}')"> Editar </button>
                         <button class="btn-deletar" onclick="deletarUsuario('${user.nome}')"> Deletar </button>
                     </div>
                 `;
@@ -33,7 +38,7 @@ formulario.addEventListener('submit', function (evento) {
     evento.preventDefault();
 
     // guarda valor digitado nos campos do formulário
-    const nomeValor = document.getElementById('campoUsuario').value;
+    const nomeValor = document.getElementById('campoNome').value;
     const cargoValor = document.getElementById('campoCargo').value;
 
     // cria objeto em js
@@ -42,42 +47,42 @@ formulario.addEventListener('submit', function (evento) {
         cargo: cargoValor
     }
 
-    // envia a requisição (endereço e objeto)
-    fetch('http://localhost:3000/usuarios', {
-        method: 'POST',                                     // objetivo de enviar dado
-        headers: { 'Content-Type': 'application/json' },    // informa ao express formato de texto json 
-        body: JSON.stringify(usuario)                       // tranforma objeto js em texto json        
-    })
-        // primeiro then pega a resposta do servidor e converte em objeto
-        .then(function (respostaDoServidor) {
-            return respostaDoServidor.json();
+    if (nomeUsuarioSendoEditado !== null) {
+        // envia a requisição (endereço e objeto)
+        fetch('http://localhost:3000/usuarios', {
+            method: 'POST',                                     // objetivo de enviar dado
+            headers: { 'Content-Type': 'application/json' },    // informa ao express formato de texto json 
+            body: JSON.stringify(usuario)                       // tranforma objeto js em texto json        
         })
+            // primeiro then pega a resposta do servidor e converte em objeto
+            .then(function (respostaDoServidor) {
+                return respostaDoServidor.json();
+            })
 
-        // o segundo then 
-        .then(function (usuarioSalvo) {
-            alert(`Sucesso! ${usuarioSalvo.nome} foi cadastrado.`); // notificação na tela
-            formulario.reset();                                     // limpa campos do formulário
-            carregarUsuarios()
-        })
+            // o segundo then 
+            .then(function (usuarioSalvo) {
+                alert(`Sucesso! ${usuarioSalvo.nome} foi cadastrado.`); // notificação na tela
+                formulario.reset();                                     // limpa campos do formulário
+                carregarUsuarios()
+            })
 
-        // caso aconteça erro
-        .catch(function (erro) {
-            console.error('Houve um erro ao se comunicar com o backend:', erro);    // avisa e mostra o erro no console
-            alert('Erro: Não foi possível conectar ao servidor backend.');          // exibe o alerta de erro
-        })
+            // caso aconteça erro
+            .catch(function (erro) {
+                console.error('Houve um erro ao se comunicar com o backend:', erro);    // avisa e mostra o erro no console
+                alert('Erro: Não foi possível conectar ao servidor backend.');          // exibe o alerta de erro
+            })
+    }
+    else {
+        
+    }
 })
 
+function prepararEdicao(nome, cargo) {
 
+    document.getElementById('campoNome').value = nome;
+    document.getElementById('campoCargo').value = cargo;
 
-
-
-
-
-
-
-
-
-
-
+    formulario.querySelector('button').innerHTML = 'Atualizar Usuário';
+}
 
 window.addEventListener('DOMContentLoaded', carregarUsuarios);
