@@ -37,26 +37,22 @@ formulario.addEventListener('submit', function (evento) {
     // evita atualização de página padrão ao enviar formulário
     evento.preventDefault();
 
-    // guarda valor digitado nos campos do formulário
-    const nomeValor = document.getElementById('campoNome').value;
-    const cargoValor = document.getElementById('campoCargo').value;
-
     // cria objeto em js
-    const usuario = {
-        nome: nomeValor,
-        cargo: cargoValor
-    }
+    const dadosUsuario = {
+        nome: document.getElementById('campoNome').value,
+        cargo: document.getElementById('campoCargo').value
+    };
 
     if (nomeUsuarioSendoEditado !== null) {
-        // envia a requisição (endereço e objeto)
-        fetch('http://localhost:3000/usuarios', {
-            method: 'POST',                                     // objetivo de enviar dado
+
+        fetch(`http://localhost:3000/usuarios/${(nomeUsuarioSendoEditado)}`, {
+            method: 'PUT',                                     // objetivo de enviar dado
             headers: { 'Content-Type': 'application/json' },    // informa ao express formato de texto json 
-            body: JSON.stringify(usuario)                       // tranforma objeto js em texto json        
+            body: JSON.stringify(dadosUsuario)                       // tranforma objeto js em texto json        
         })
             // primeiro then pega a resposta do servidor e converte em objeto
-            .then(function (respostaDoServidor) {
-                return respostaDoServidor.json();
+            .then(function () {
+                
             })
 
             // o segundo then 
@@ -73,7 +69,21 @@ formulario.addEventListener('submit', function (evento) {
             })
     }
     else {
-        
+        fetch('http://localhost:3000/usuarios', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(dadosUsuario)
+        })
+            .then(function(resposta) {
+                return resposta.json();
+            })
+            .then(function(usuarioSalvo) {
+                formulario.reset();
+                carregarUsuarios();
+            })
+            .catch(function(erro){
+                alert('Erro ao salvar usuário.');
+            });
     }
 })
 
@@ -83,6 +93,8 @@ function prepararEdicao(nome, cargo) {
     document.getElementById('campoCargo').value = cargo;
 
     formulario.querySelector('button').innerHTML = 'Atualizar Usuário';
+
+    nomeUsuarioSendoEditado = nome;
 }
 
 window.addEventListener('DOMContentLoaded', carregarUsuarios);
