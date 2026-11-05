@@ -24,8 +24,8 @@ mongoose.connect(LINK_DO_BANCO)
 
 // MODELO DE DADOS (SCHEMA): Molde estrutural para o MongoDB NoSQL
 const UsuarioSchema = new mongoose.Schema({
-    nome: {type: String, require: true},
-    cargo: {type: String, require: true}
+    nome: {type: String, required: true},
+    cargo: {type: String, required: true}
 })
 
 // Modelo operacional baseado no molde criado acima
@@ -56,6 +56,21 @@ app.post('/usuarios', function(requisicao, response) {
             return response.status(400).json({
                 erro: "Erro ao salvar usuário no banco de dados."
             })
+        })
+})
+
+app.put('/usuarios/:nomeParametro', function(requisicao, response) {
+    const nomeParametro = decodeURIComponent(requisicao.params.nomeParametro);
+    const dadosNovos = requisicao.body;
+    Usuario.findOneAndUpdates(
+        {nome: {$regex: new RegExp("^" + nomeParametro + "$", "i")}},
+        {nome: dadosNovos.nome, cargo: dadosNovos.cargo},
+        {new: true}
+    )
+        .then(function (usuarioAtualizado) {
+            if(!usuarioAtualizado) {
+                return response.status(404)
+            }
         })
 })
 
